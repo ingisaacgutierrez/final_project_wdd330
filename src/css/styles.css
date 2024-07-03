@@ -8,6 +8,7 @@ body {
     margin: 0;
 }
 
+/* Login Page Styles */
 .login-container {
     background-color: white; /* Clarity */
     padding: 2rem;
@@ -58,3 +59,59 @@ body {
 .btn:hover {
     background-color: #009a80; /* Darker green */
 }
+
+/* Profile and Home Page Styles */
+.header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.header .logo {
+    max-width: 50px;
+    vertical-align: middle;
+}
+
+.header nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.header nav ul li {
+    display: inline;
+    margin: 0 1rem;
+}
+
+.header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.header nav ul li a.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+main {
+    padding: 6rem 1rem 1rem; /* Adjusting padding to account for fixed header */
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.score-section, .top-scores-section, .top-missed-questions-section {
+    margin-bottom: 2rem;
+}
+
+ol {
+    padding-left: 1.5rem;
+}
+
