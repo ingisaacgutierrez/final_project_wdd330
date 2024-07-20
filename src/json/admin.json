@@ -1,0 +1,8 @@
+[
+  {
+    "_id": "66897edea2df76453a6b2265",
+    "name": "AdminUser",
+    "email": "adminuser@example.com",
+    "password": "adminsecurepassword123"
+  }
+]

@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/styles.css">
-    <script type="module" src="../js/profile.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Trivia Game</title>
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-    <header>
-        <img src="../images/logo.png" alt="Trivia Guessing Game Logo">
-        <h1>Trivia Guessing Game</h1>
-        <nav>
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="start_game.html">Start Game</a></li>
-                <li><a href="questionario.html">Questionario</a></li>
-            </ul>
-        </nav>
-    </header>
+  <div id="root">
+    <header id="header"></header>
     <main>
-        <h2>Welcome to Trivia Guessing Game!</h2>
-        <section id="lastScore">
-            <h3>Last Score: <span id="lastScoreValue"></span></h3>
-        </section>
-        <section id="topScores">
-            <h3>Top 3 Scores</h3>
-            <ul id="topScoresList"></ul>
-        </section>
-        <section id="topMissedQuestions">
-            <h3>Top 3 Missed Questions</h3>
-            <ul id="topMissedQuestionsList"></ul>
-        </section>
+      <h1>Welcome to the Trivia Game</h1>
+      <div id="last-score">Your last score: <span>0</span></div>
+      <div id="top-scores">Top 3 Scores:
+        <ul>
+          <li>0</li>
+          <li>0</li>
+          <li>0</li>
+        </ul>
+      </div>
+      <div id="top-questions">Top 3 Missed Questions:
+        <ul>
+          <li>Question 1</li>
+          <li>Question 2</li>
+          <li>Question 3</li>
+        </ul>
+      </div>
+      <button onclick="startGame()">Start Game</button>
     </main>
+    <footer id="footer"></footer>
+  </div>
+  <script type="module" src="../js/main.js"></script>
 </body>
 </html>
+
+
+
 
 

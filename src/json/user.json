@@ -1,0 +1,15 @@
+[
+  {
+    "_id": "66897e07a2df76453a6b2260",
+    "username": "JohnDoe",
+    "email": "johndoe@example.com",
+    "password": "securepassword123",
+    "highestScore": 95,
+    "numberOfErrors": 10,
+    "scoreHistory": [
+      { "date": "2024-06-01", "score": 80 },
+      { "date": "2024-06-05", "score": 85 },
+      { "date": "2024-06-10", "score": 95 }
+    ]
+  }
+]

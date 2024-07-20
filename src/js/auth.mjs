@@ -1,42 +1,35 @@
-import { authenticateUser } from './externalservices.mjs';
-import { getParam } from './utils.mjs';
+// auth.mjs
 
-export async function login(creds, redirect) {
-    try {
-        const token = await authenticateUser(creds.email, creds.password);
-        localStorage.setItem('authToken', JSON.stringify(token));
-        if (redirect) {
-            window.location.href = redirect;
-        } else {
-            window.location.href = '../main_dashboard/home.html';
-        }
-    } catch (error) {
-        alert(error.message);
-    }
+export async function checkLogin() {
+  const user = await getUserData();
+  return user; 
 }
 
-export function isTokenValid() {
-    const tokenString = localStorage.getItem('authToken');
-    if (!tokenString) return false;
-
-    const token = JSON.parse(tokenString);
-    return token.expiry > new Date().getTime();
+export async function getUserData() {
+  const response = await fetch('../json/user.json');
+  const data = await response.json();
+  return data;
 }
 
-export function checkLogin() {
-    const redirect = getParam('redirect');
-    if (!isTokenValid()) {
-        const currentUrl = window.location.href;
-        if (!currentUrl.includes('login/index.html')) {
-            window.location.href = `../login/index.html${redirect ? `?redirect=${redirect}` : ''}`;
-        }
-    }
+export function logout() {
+  localStorage.removeItem('token'); 
 }
 
-export function getUserData() {
-    const tokenString = localStorage.getItem('authToken');
-    if (!tokenString) return null;
+export async function login(email, password) {
 
-    const token = JSON.parse(tokenString);
-    return token.user;
+  const response = await fetch('../api/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ email, password }),
+  });
+
+  const result = await response.json();
+
+  if (result.success) {
+    localStorage.setItem('token', result.token);
+  }
+
+  return result;
 }

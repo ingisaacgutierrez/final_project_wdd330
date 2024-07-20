@@ -1,21 +1,23 @@
-import { login, checkLogin } from './auth.mjs';
-import { getParam } from './utils.mjs';
+import { login } from './auth.mjs';
+import { loadHeaderFooter } from './utils.mjs';
 
 document.addEventListener('DOMContentLoaded', () => {
-    const redirect = getParam('redirect');
+  loadHeaderFooter();
 
-    document.getElementById('loginForm').addEventListener('submit', async (event) => {
-        event.preventDefault();
+  const loginForm = document.getElementById('login-form');
+  loginForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const email = event.target.email.value;
+    const password = event.target.password.value;
 
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-
-        const creds = { email, password };
-        await login(creds, redirect);
-    });
-
-    const currentUrl = window.location.href;
-    if (!currentUrl.includes('login/index.html')) {
-        checkLogin();
+    const result = await login(email, password);
+    if (result.success) {
+      window.location.href = './main_dashboard/home.html';
+    } else {
+      document.getElementById('login-error').textContent = result.message;
+      document.getElementById('login-error').style.display = 'block';
     }
+  });
 });
+
+
