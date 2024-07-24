@@ -16,8 +16,7 @@ export function logout() {
 }
 
 export async function login(email, password) {
-
-  const response = await fetch('../api/login', {
+  const response = await fetch('https://guessing-project.onrender.com/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -28,8 +27,9 @@ export async function login(email, password) {
   const result = await response.json();
 
   if (result.success) {
-    localStorage.setItem('token', result.token);
+    setLocalStorage('user', result.user);
   }
 
   return result;
 }
+

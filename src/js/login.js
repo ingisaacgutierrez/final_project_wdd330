@@ -1,23 +1,21 @@
 import { login } from './auth.mjs';
-import { loadHeaderFooter } from './utils.mjs';
+import { setLocalStorage } from './utils.mjs';
 
-document.addEventListener('DOMContentLoaded', () => {
-  loadHeaderFooter();
+document.getElementById('login-form').addEventListener('submit', async (event) => {
+  event.preventDefault();
 
-  const loginForm = document.getElementById('login-form');
-  loginForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const email = event.target.email.value;
-    const password = event.target.password.value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
 
-    const result = await login(email, password);
-    if (result.success) {
-      window.location.href = './main_dashboard/home.html';
-    } else {
-      document.getElementById('login-error').textContent = result.message;
-      document.getElementById('login-error').style.display = 'block';
-    }
-  });
+  const result = await login(email, password);
+
+  if (result.success) {
+    setLocalStorage('user', result.user);
+    window.location.href = '../main_dashboard/home.html';
+  } else {
+    alert('Login failed. Please check your credentials.');
+  }
 });
+
 
 
