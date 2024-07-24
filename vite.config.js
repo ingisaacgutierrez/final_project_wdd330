@@ -11,7 +11,7 @@ export default defineConfig({
         login: resolve(__dirname, "src/login/index.html"),
         profile: resolve(__dirname, "src/profile/profile.html"),
         questionary: resolve(__dirname, "src/questionary/questionary.html"),
-        main_dashboard: resolve(__dirname, "src/main_dashboard/home.html"),
+        main_dashboard: resolve(__dirname, "src/main_Dashboard/home.html"),
       },
     },
   },
