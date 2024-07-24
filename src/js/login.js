@@ -1,21 +1,20 @@
-import { login } from './auth.mjs';
-import { setLocalStorage } from './utils.mjs';
+import { login } from "./auth.mjs";
+import { setLocalStorage } from "./utils.mjs";
 
-document.getElementById('login-form').addEventListener('submit', async (event) => {
-  event.preventDefault();
+document
+  .getElementById("login-form")
+  .addEventListener("submit", async (event) => {
+    event.preventDefault();
 
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-  const result = await login(email, password);
+    const result = await login(email, password);
 
-  if (result.success) {
-    setLocalStorage('user', result.user);
-    window.location.href = '../main_dashboard/home.html';
-  } else {
-    alert('Login failed. Please check your credentials.');
-  }
-});
-
-
-
+    if (result.success) {
+      setLocalStorage("user", result.user);
+      window.location.href = "../main_dashboard/home.html";
+    } else {
+      alert("Login failed. Please check your credentials.");
+    }
+  });
