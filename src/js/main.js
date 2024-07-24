@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const user = await checkLogin();
   if (!user) {
-    window.location.href = "../login/index.html";
+    window.location.href = "src/login/index.html";
     return;
   }
 
