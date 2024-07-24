@@ -13,7 +13,7 @@ document
 
     if (result.success) {
       setLocalStorage("user", result.user);
-      window.location.href = "../main_dashboard/home.html";
+      window.location.href = "../main_Dashboard/home.html";
     } else {
       alert("Login failed. Please check your credentials.");
     }

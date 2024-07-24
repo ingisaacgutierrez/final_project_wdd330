@@ -1,5 +1,3 @@
-// auth.mjs
-
 export async function checkLogin() {
   const user = await getUserData();
   return user; 

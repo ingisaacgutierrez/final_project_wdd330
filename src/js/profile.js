@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const user = await checkLogin();
   if (!user) {
-    window.location.href = "../login.html";
+    window.location.href = "../login/index.html";
     return;
   }
 
@@ -23,6 +23,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   document.getElementById("logout").addEventListener("click", () => {
     logout();
-    window.location.href = "../login.html";
+    window.location.href = "../login/index.html";
   });
 });
