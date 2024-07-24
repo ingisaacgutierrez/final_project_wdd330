@@ -4,7 +4,7 @@ export async function checkLogin() {
 }
 
 export async function getUserData() {
-  const response = await fetch('src/json/user.json');
+  const response = await fetch('/json/user.json');
   const data = await response.json();
   return data;
 }
