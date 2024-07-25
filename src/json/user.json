@@ -2,8 +2,8 @@
   {
     "_id": "66897e07a2df76453a6b2260",
     "username": "JohnDoe",
-    "email": "johndoe@example.com",
-    "password": "securepassword123",
+    "email": "xavier@test.com",
+    "password": "pass456",
     "highestScore": 95,
     "numberOfErrors": 10,
     "scoreHistory": [
