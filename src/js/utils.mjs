@@ -1,9 +1,10 @@
-export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = true){
-  if (clear) {
-    parentElement.innerHTML = "";
-  }
-  const htmlString = list.map(templateFn);
-  parentElement.insertAdjacentHTML(position, htmlString.join(""));
+// retrieve data from localStorage
+export function getLocalStorage(key) {
+  return JSON.parse(localStorage.getItem(key));
+}
+// save data to local storage
+export function setLocalStorage(key, data) {
+  localStorage.setItem(key, JSON.stringify(data));
 }
 
 export async function renderWithTemplate(templateFn, parentElement, data, callback, position = "afterbegin", clear = true) {
@@ -40,14 +41,4 @@ export async function loadHeaderFooter() {
   renderWithTemplate(headerTemplate, headerElement);
   renderWithTemplate(footerTemplate, footerElement);
 } 
-
-// retrieve data from localStorage
-export function getLocalStorage(key) {
-  return JSON.parse(localStorage.getItem(key));
-}
-// save data to local storage
-export function setLocalStorage(key, data) {
-  localStorage.setItem(key, JSON.stringify(data));
-}
-
   
