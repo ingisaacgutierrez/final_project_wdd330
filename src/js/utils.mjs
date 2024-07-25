@@ -1,16 +1,16 @@
-export function loadHeaderFooter() {
-  fetch('/src/partials/header.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('header').innerHTML = data;
-    });
+export async function loadHeaderFooter() {
+  const headerTemplate = loadTemplate("/partials/header.html"); 
+  const footerTemplate = loadTemplate("/partials/footer.html");
 
-  fetch('/src/partials/footer.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('footer').innerHTML = data;
-    });
-}
+  // Grab the header and footer elements from the DOM
+  const headerElement = document.querySelector("#header");
+  const footerElement = document.querySelector("#footer");
+
+  // Render the header and footer templates
+  renderWithTemplate(headerTemplate, headerElement);
+  renderWithTemplate(footerTemplate, footerElement);
+} 
+
 
 
 // retrieve data from localStorage
