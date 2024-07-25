@@ -1,16 +1,17 @@
 export function loadHeaderFooter() {
-  fetch('partials/header.html')
+  fetch('/src/partials/header.html')
     .then(response => response.text())
     .then(data => {
       document.getElementById('header').innerHTML = data;
     });
 
-  fetch('partials/footer.html')
+  fetch('/src/partials/footer.html')
     .then(response => response.text())
     .then(data => {
       document.getElementById('footer').innerHTML = data;
     });
 }
+
 
 // retrieve data from localStorage
 export function getLocalStorage(key) {
